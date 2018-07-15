@@ -5,15 +5,28 @@ CONTENT_BASE = 'https://content.gotinder.com'
 
 USER_AGENT = 'Tinder Android Version 6.4.1'
 
+# Original headers don't work anymore
+#HEADERS = {
+#    "Content-Type": "application/json; charset=utf-8",
+#    "User-Agent": USER_AGENT,
+#    "Host": API_BASE,
+#    "os_version": "1935",
+#    "app-version": "371",
+#    "platform": "android",  # XXX with ios we run in an error
+#    "Accept-Encoding": "gzip"
+#}
+
+# Copying headers from this other repo https://github.com/fbessez/Tinder
+
 HEADERS = {
     "Content-Type": "application/json; charset=utf-8",
-    "User-Agent": USER_AGENT,
+    "User-Agent": "Tinder/7.5.3 (iPhone; iOS 10.3.2; Scale/2.00)",
     "Host": API_BASE,
-    "os_version": "1935",
-    "app-version": "371",
-    "platform": "android",  # XXX with ios we run in an error
-    "Accept-Encoding": "gzip"
-}
+    #"os_version": "1935",
+    "app-version": "694",
+    "platform": "ios",  # XXX with ios we run in an error
+    #"Accept-Encoding": "gzip"
+}       
 
 GENDER_MAP = ("male", "female")
 
