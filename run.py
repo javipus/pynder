@@ -71,9 +71,10 @@ def dumpUserInfo(usr, path = DATA_PATH, downloadPictures = True):
                     print(e.message)
 
 
-def saveAndLike(session, nonStop = NONSTOP):
+def saveAndLike(nonStop = NONSTOP):
 
     while nonStop:
+        session = recAuth()
         likes = session.likes_remaining
 
         if not likes:
@@ -100,5 +101,4 @@ def nap(wait):
 
 
 if __name__ == '__main__':
-    session = recAuth()
-    saveAndLike(session)
+    saveAndLike()
