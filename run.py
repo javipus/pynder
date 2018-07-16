@@ -1,5 +1,7 @@
 import pynder
 import time, os, sys
+import requests
+import json
 import numpy as np
 
 NONSTOP = True
@@ -59,7 +61,7 @@ def dumpUserInfo(usr, path = DATA_PATH, downloadPictures = True):
     info.update({'photos': list(usr.photos)})
 
     with open(os.path.join(usrPath, 'info.json'), 'w') as f:
-        f.write(usr.name)
+        json.dump(info, f)
 
     if downloadPictures:
         for k, url in enumerate(info['photos']):
@@ -87,11 +89,11 @@ def saveAndLike(nonStop = NONSTOP):
 
             while likes:
                 person = people.next()
-                print('Saving and liking... {}, {}'.format(usr.name, str(usr.age)))
+                print('Saving and liking... {}, {}'.format(person.name.encode('utf-8'), str(person.age)))
                 dumpUserInfo(person)
                 person.like()
                 likes = session.likes_remaining
-                print('Likes remaining: {}'.format(likes))
+                print('Likes remaining: {}'.format(likes).encode('utf-8'))
 
 
 def nap(wait):
