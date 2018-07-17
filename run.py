@@ -92,7 +92,8 @@ def saveAndLike(nonStop = NONSTOP):
                 print('Saving and liking... {}, {}'.format(person.name.encode('utf-8'), str(person.age)))
                 dumpUserInfo(person)
                 person.like()
-                likes = session.likes_remaining
+                # TODO check for match, and perhaps add that info to json dump
+                likes -= 1
                 print('Likes remaining: {}'.format(likes).encode('utf-8'))
 
 
