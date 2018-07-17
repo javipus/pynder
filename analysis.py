@@ -15,14 +15,14 @@ class UsersDB(object):
         self._db = self._load(self._dataPath)
 
 
-    def loadAll(self):
+    def _load(self):
         """
         Load info of all users contained in data path.
         @param dataPath: Path to data folder which has structure dataPath/usr/info.json
         @return pandas DataFrame.
         """
 
-        infos = [os.path.join(dataPath, usr, 'info.json') for usr in os.listdir(dataPath)]
+        infos = [os.path.join(self._dataPath, usr, 'info.json') for usr in os.listdir(self._dataPath)]
         d = []
 
         for info in infos:
